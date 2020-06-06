@@ -1,7 +1,15 @@
 #!/bin/bash
 set -x
 
-if [[ $TRAVIS_OS_NAME != 'linux' ]]; then
+if [[ $TRAVIS_OS_NAME == 'freebsd ' ]]; then
+    echo "running on freebsd"
+    id
+    sudo sed -i.bak -e 's,quarterly,latest,' /etc/pkg/FreeBSD.conf
+    sudo env ASSUME_ALWAYS_YES=yes pkg bootstrap -f
+    sudo pkg upgrade -y
+    sudo pkg install -y gmake autoconf automake libtool dejagnu
+    sudo ln -sf $(which gmake) $(which make)
+elif [[ $TRAVIS_OS_NAME != 'linux' ]]; then
     brew update > brew-update.log 2>&1
     # fix an issue with libtool on travis by reinstalling it
     brew uninstall libtool;

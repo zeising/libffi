@@ -76,8 +76,9 @@ before_install:
   - if test x"$MEVAL" != x; then eval ${MEVAL}; fi
   - |
     if [ "$TRAVIS_OS_NAME" == freebsd ]; then
-      sudo pkg install -y gmake
-      sudo ln -sf $(which gmake) $(which make)
+      # ensure that bash and sudo is installed before running install.sh
+      sudo pkg install -y bash sudo
+      sudo ln -sf $(which bash) /bin/bash
     fi
 
 install:

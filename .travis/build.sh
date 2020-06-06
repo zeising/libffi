@@ -150,7 +150,7 @@ case "$HOST" in
 	./autogen.sh
 	build_cross_linux
 	;;
-    freebsd )
+    amd64-*-freebsd* )
 	./autogen.sh
 	build_freebsd
 	;;

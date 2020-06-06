@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 
-if [[ $TRAVIS_OS_NAME == 'freebsd ' ]]; then
+if [[ $TRAVIS_OS_NAME == 'freebsd' ]]; then
     echo "running on freebsd"
     id
     sudo sed -i.bak -e 's,quarterly,latest,' /etc/pkg/FreeBSD.conf

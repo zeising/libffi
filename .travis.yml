@@ -70,9 +70,15 @@ matrix:
       env: CONFIGURE_OPTIONS=--disable-shared
     - os: linux
       env: HOST=moxie-elf MEVAL='export PATH=/opt/moxielogic/bin:$PATH && CC=moxie-elf-gcc && CXX=moxie-elf-g++' LDFLAGS=-Tsim.ld RUNTESTFLAGS="--target_board moxie-sim" DEJAGNU="$TRAVIS_BUILD_DIR/.travis/site.exp"
+    - os: freebsd
 
 before_install:
   - if test x"$MEVAL" != x; then eval ${MEVAL}; fi
+  - |
+    if [ "$TRAVIS_OS_NAME" == freebsd ]; then
+      sudo pkg install -y gmake
+      sudo ln -sf $(which gmake) $(which make)
+    fi
 
 install:
   - travis_wait 30 ./.travis/install.sh

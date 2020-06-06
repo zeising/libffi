@@ -7,7 +7,7 @@ if [[ $TRAVIS_OS_NAME == 'freebsd' ]]; then
     sudo sed -i.bak -e 's,quarterly,latest,' /etc/pkg/FreeBSD.conf
     sudo env ASSUME_ALWAYS_YES=yes pkg bootstrap -f
     sudo pkg upgrade -y
-    sudo pkg install -y gmake autoconf automake libtool dejagnu
+    sudo pkg install -y gmake autoconf automake libtool dejagnu texinfo
     sudo ln -sf $(which gmake) $(which make)
 elif [[ $TRAVIS_OS_NAME != 'linux' ]]; then
     brew update > brew-update.log 2>&1

@@ -95,6 +95,21 @@ function build_macosx()
     exit $?
 }
 
+function build_freebsd()
+{
+    ./autogen.sh
+    ./configure ${HOST+--host=$HOST} ${CONFIGURE_OPTIONS} || cat */config.log
+    gmake
+    gmake dist
+    gmake check RUNTESTFLAGS="-a $RUNTESTFLAGS"
+
+    # no rlgl on FreeBSD
+    #./rlgl l --key=${RLGL_KEY} https://rl.gl
+    #ID=$(./rlgl start)
+    #./rlgl e --id=$ID --policy=https://github.com/libffi/rlgl-policy.git */testsuite/libffi.log
+    #exit $?
+}
+
 case "$HOST" in
     arm-apple-darwin*)
 	./autogen.sh
@@ -134,6 +149,10 @@ case "$HOST" in
     alpha-linux-gnu | sh4-linux-gnu )
 	./autogen.sh
 	build_cross_linux
+	;;
+    freebsd )
+	./autogen.sh
+	build_freebsd
 	;;
     *)
 	./autogen.sh

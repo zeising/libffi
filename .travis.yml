@@ -72,6 +72,8 @@ matrix:
       env: HOST=moxie-elf MEVAL='export PATH=/opt/moxielogic/bin:$PATH && CC=moxie-elf-gcc && CXX=moxie-elf-g++' LDFLAGS=-Tsim.ld RUNTESTFLAGS="--target_board moxie-sim" DEJAGNU="$TRAVIS_BUILD_DIR/.travis/site.exp"
     - os: freebsd
       env: HOST=amd64-unknown-freebsd12.1
+    - os: freebsd
+      env: HOST=i386-unknown-freebsd12.1
 
 before_install:
   - if test x"$MEVAL" != x; then eval ${MEVAL}; fi

@@ -102,6 +102,7 @@ function build_freebsd()
     gmake
     gmake dist
     gmake check RUNTESTFLAGS="-a $RUNTESTFLAGS"
+    ldd .libs/libffi.so.8.1.0
 
     # no rlgl on FreeBSD
     #./rlgl l --key=${RLGL_KEY} https://rl.gl

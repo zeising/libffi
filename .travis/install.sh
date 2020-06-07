@@ -4,6 +4,7 @@ set -x
 if [[ $TRAVIS_OS_NAME == 'freebsd' ]]; then
     echo "running on freebsd"
     id
+    uname -a
     sudo sed -i.bak -e 's,quarterly,latest,' /etc/pkg/FreeBSD.conf
     sudo env ASSUME_ALWAYS_YES=yes pkg bootstrap -f
     sudo pkg upgrade -y

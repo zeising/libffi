@@ -167,7 +167,7 @@ L(small_struct_return_value):
 
 END(ffi_call_SYSV)
 
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || defined __FreeBSD__)
 	.section	.note.GNU-stack,"",@progbits
 #endif
 #endif

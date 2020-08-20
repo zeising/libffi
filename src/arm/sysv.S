@@ -380,6 +380,6 @@ ARM_FUNC_END(ffi_arm_trampoline)
 #endif /* FFI_EXEC_TRAMPOLINE_TABLE */
 #endif /* __arm__ */
 
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || defined __FreeBSD__)
 	.section	.note.GNU-stack,"",%progbits
 #endif

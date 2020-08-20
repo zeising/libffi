@@ -435,6 +435,6 @@ E(SPARC_RET_F_1)
 .LEFDE3:
 
 #endif /* SPARC64 */
-#ifdef __linux__
+#if defind(__linux__) || defined(__FreeBSD__)
 	.section	.note.GNU-stack,"",@progbits
 #endif

@@ -438,6 +438,6 @@ E(SPARC_RET_F_1)
 .LEFDE3:
 
 #endif /* !SPARC64 */
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || defined __FreeBSD__)
 	.section	.note.GNU-stack,"",@progbits
 #endif

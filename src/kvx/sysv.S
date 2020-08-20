@@ -121,7 +121,7 @@ ffi_call_SYSV:
 
 #endif /* __kvx__ */
 
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || defined __FreeBSD__)
 	.section .note.GNU-stack,"",%progbits
 #endif
 

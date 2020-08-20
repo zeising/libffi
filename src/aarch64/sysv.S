@@ -445,7 +445,7 @@ CNAME(ffi_go_closure_SYSV):
 #endif /* FFI_GO_CLOSURES */
 #endif /* __arm64__ */
 
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || defined __FreeBSD__)
 	.section .note.GNU-stack,"",%progbits
 #endif
 

@@ -277,6 +277,6 @@ E ALPHA_LD_CPLXD
 	cfi_endproc
 	.end	ffi_closure_osf
 
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || __FreeBSD__)
 	.section	.note.GNU-stack,"",@progbits
 #endif

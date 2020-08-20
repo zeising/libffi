@@ -547,6 +547,6 @@ ffi_go_closure_linux64:
 # endif
 #endif
 
-#if (defined __ELF__ && defined __linux__) || _CALL_ELF == 2
+#if (defined __ELF__ && (defined __linux__ || defined __FreeBSD__) ) || _CALL_ELF == 2
 	.section	.note.GNU-stack,"",@progbits
 #endif

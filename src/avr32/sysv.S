@@ -203,6 +203,6 @@ ffi_closure_SYSV:
 
     .size   ffi_closure_SYSV, . - ffi_closure_SYSV
 
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || defined __FreeBSD__)
     .section    .note.GNU-stack,"",@progbits
 #endif

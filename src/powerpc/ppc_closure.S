@@ -391,7 +391,7 @@ ENTRY(ffi_go_closure_sysv)
 	.cfi_endproc
 END(ffi_go_closure_sysv)
 
-#if defined __ELF__ && defined __linux__
+#if defined __ELF__ && (defined __linux__ || defined __FreeBSD__)
 	.section	.note.GNU-stack,"",@progbits
 #endif
 #endif
